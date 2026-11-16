@@ -2,6 +2,7 @@
 
 import { useState, useEffect, use } from "react";
 import { useRouter } from "next/navigation";
+import { API_URL } from "../../../../services/api";
 
 export default function EditApplicationPage({
   params,
@@ -21,7 +22,7 @@ export default function EditApplicationPage({
       try {
         const token = localStorage.getItem("token");
 
-        const res = await fetch(`http://localhost:5000/applications/${id}`, {
+        const res = await fetch(`${API_URL}/applications/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
@@ -50,7 +51,7 @@ export default function EditApplicationPage({
     try {
       const token = localStorage.getItem("token");
 
-      const res = await fetch(`http://localhost:5000/applications/${id}`, {
+      const res = await fetch(`${API_URL}/applications/${id}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,

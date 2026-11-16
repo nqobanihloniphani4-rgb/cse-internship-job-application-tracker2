@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { API_URL } from "../services/api";
 
 interface Application {
   id: number;
@@ -52,7 +53,7 @@ export default function DashboardPage() {
 
   async function fetchStats() {
     try {
-      const response = await fetch("http://localhost:5000/applications", {
+      const response = await fetch(`${API_URL}/applications`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -90,7 +91,7 @@ export default function DashboardPage() {
       : { email: emailInput, password: passwordInput };
 
     try {
-      const res = await fetch(`http://localhost:5000${endpoint}`, {
+      const res = await fetch(`${API_URL}${endpoint}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

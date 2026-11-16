@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { API_URL } from "../../services/api";
 
 interface Application {
   id: number;
@@ -21,7 +22,7 @@ export default function ApplicationsPage() {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await fetch("http://localhost:5000/applications", {
+      const response = await fetch(`${API_URL}/applications`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -50,7 +51,7 @@ export default function ApplicationsPage() {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await fetch(`http://localhost:5000/applications/${id}`, {
+      const response = await fetch(`${API_URL}/applications/${id}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -75,7 +76,7 @@ export default function ApplicationsPage() {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await fetch(`http://localhost:5000/applications/${id}`, {
+      const response = await fetch(`${API_URL}/applications/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

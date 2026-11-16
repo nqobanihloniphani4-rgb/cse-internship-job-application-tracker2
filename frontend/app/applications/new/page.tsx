@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { API_URL } from "../../../services/api";
 
 export default function AddApplicationPage() {
   const router = useRouter();
@@ -29,7 +30,7 @@ export default function AddApplicationPage() {
         return;
       }
 
-      const response = await fetch("http://localhost:5000/applications", {
+      const response = await fetch(`${API_URL}/applications`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

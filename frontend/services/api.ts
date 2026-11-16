@@ -1,4 +1,6 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+export const API_URL =
+  process.env.NEXT_PUBLIC_API_URL ||
+  'https://cse-internship-job-application-tracker2.onrender.com';
 
 interface RequestOptions extends RequestInit {
   adminPassword?: string;
